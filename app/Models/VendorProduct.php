@@ -77,6 +77,6 @@ class VendorProduct extends Model
     public function scopeLowStock($query)
     {
         return $query->whereColumn('stock_qty', '<=', 'min_stock_qty')
-                    ->whereNotNull('min_stock_qty');
+            ->whereNotNull('min_stock_qty');
     }
 }

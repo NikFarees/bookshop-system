@@ -30,8 +30,8 @@ class Organization extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'organization_users')
-                    ->withPivot('org_role', 'status')
-                    ->withTimestamps();
+            ->withPivot('org_role', 'status')
+            ->withTimestamps();
     }
 
     /**
@@ -64,8 +64,8 @@ class Organization extends Model
     public function schools()
     {
         return $this->belongsToMany(Organization::class, 'school_vendor', 'vendor_id', 'school_id')
-                    ->withPivot('status')
-                    ->withTimestamps();
+            ->withPivot('status')
+            ->withTimestamps();
     }
 
     /**
@@ -74,8 +74,8 @@ class Organization extends Model
     public function vendors()
     {
         return $this->belongsToMany(Organization::class, 'school_vendor', 'school_id', 'vendor_id')
-                    ->withPivot('status')
-                    ->withTimestamps();
+            ->withPivot('status')
+            ->withTimestamps();
     }
 
     /**

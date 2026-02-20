@@ -64,7 +64,7 @@ class User extends Authenticatable
      */
     public function parent()
     {
-        return $this->hasOne(Parent::class);
+        return $this->hasOne(parent::class);
     }
 
     /**
@@ -73,8 +73,8 @@ class User extends Authenticatable
     public function organizations()
     {
         return $this->belongsToMany(Organization::class, 'organization_users')
-                    ->withPivot('org_role', 'status')
-                    ->withTimestamps();
+            ->withPivot('org_role', 'status')
+            ->withTimestamps();
     }
 
     /**
