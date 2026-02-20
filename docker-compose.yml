@@ -1,0 +1,48 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bookshop_app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - db
+    networks:
+      - bookshop_net
+
+  web:
+    image: nginx:alpine
+    container_name: bookshop_web
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - bookshop_net
+
+  db:
+    image: mysql:8.0
+    container_name: bookshop_db
+    environment:
+      MYSQL_DATABASE: bookshop
+      MYSQL_USER: bookshop
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - bookshop_net
+
+volumes:
+  db_data:
+
+
+networks:
+  bookshop_net:
