@@ -1,0 +1,6 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+name,VARCHAR(50),super_admin/admin/parent/school_admin/school_staff/vendor_admin/vendor_staff
+description,VARCHAR(255),Notes
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

@@ -1,0 +1,16 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+type,VARCHAR(20),school/vendor
+name,VARCHAR(200),Org name
+code,VARCHAR(60),Optional org code
+status,VARCHAR(20),pending/approved/suspended/rejected
+phone,VARCHAR(30),Contact phone
+email,VARCHAR(190),Contact email
+address_line1,VARCHAR(255),Address
+address_line2,VARCHAR(255),Address
+city,VARCHAR(100),City
+state,VARCHAR(100),State
+postcode,VARCHAR(20),Postcode
+country,VARCHAR(80),Country
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

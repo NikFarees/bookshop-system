@@ -1,0 +1,7 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+school_id,BIGINT UNSIGNED,FK organizations.id (school)
+vendor_id,BIGINT UNSIGNED,FK organizations.id (vendor)
+status,VARCHAR(20),active/inactive
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

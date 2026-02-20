@@ -1,0 +1,9 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+parent_id,BIGINT UNSIGNED,FK parents.id
+full_name,VARCHAR(150),Child name
+school_id,BIGINT UNSIGNED,FK organizations.id (type=school)
+grade_label,VARCHAR(60),Flexible: Darjah 1 / Tingkatan 2 / Year 10
+status,VARCHAR(20),active/inactive
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

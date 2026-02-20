@@ -1,0 +1,10 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+code,VARCHAR(40),ISBN or unique product code
+name,VARCHAR(200),Master short name
+type,VARCHAR(20),book/stationery/other
+brand,VARCHAR(120),Brand/publisher (optional)
+uom,VARCHAR(20),"Unit of measure (e.g., unit, pack)"
+status,VARCHAR(20),active/inactive
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

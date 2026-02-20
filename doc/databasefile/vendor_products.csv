@@ -1,0 +1,11 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+vendor_id,BIGINT UNSIGNED,FK organizations.id (vendor)
+product_id,BIGINT UNSIGNED,FK products.id
+sku,VARCHAR(60),Optional vendor SKU
+default_price,"DECIMAL(10,2)",Vendor global price
+stock_qty,INT,Stock quantity
+min_stock_qty,INT,Optional reorder threshold
+status,VARCHAR(20),active/inactive
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

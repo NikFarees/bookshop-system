@@ -1,0 +1,12 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+user_id,BIGINT UNSIGNED,FK users.id
+phone,VARCHAR(30),Parent phone (optional)
+default_address_line1,VARCHAR(255),Default shipping
+default_address_line2,VARCHAR(255),
+default_city,VARCHAR(100),
+default_state,VARCHAR(100),
+default_postcode,VARCHAR(20),
+default_country,VARCHAR(80),
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

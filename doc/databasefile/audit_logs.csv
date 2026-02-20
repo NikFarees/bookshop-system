@@ -1,0 +1,9 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+actor_user_id,BIGINT UNSIGNED,FK users.id
+action,VARCHAR(80),"e.g., APPROVE_SCHOOL, PUBLISH_BOOKLIST"
+entity_type,VARCHAR(80),Table/model name
+entity_id,BIGINT UNSIGNED,Target record id
+before_json,JSON,Before values
+after_json,JSON,After values
+created_at,DATETIME,Timestamp

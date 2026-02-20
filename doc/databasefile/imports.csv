@@ -1,0 +1,10 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+organization_id,BIGINT UNSIGNED,School/admin org (optional)
+user_id,BIGINT UNSIGNED,Who uploaded
+type,VARCHAR(30),excel_booklist/pdf_booklist
+file_name,VARCHAR(255),File name
+status,VARCHAR(30),uploaded/extracted/mapped/imported/failed
+notes,TEXT,Error/log summary
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

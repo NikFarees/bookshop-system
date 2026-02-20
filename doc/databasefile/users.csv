@@ -1,0 +1,11 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+role_id,BIGINT UNSIGNED,FK roles.id
+name,VARCHAR(150),User full name
+email,VARCHAR(190),Login email
+password_hash,VARCHAR(255),Hashed password
+phone,VARCHAR(30),Phone
+status,VARCHAR(20),active/disabled
+last_login_at,DATETIME,Last login
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

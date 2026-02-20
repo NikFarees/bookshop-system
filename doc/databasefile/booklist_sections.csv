@@ -1,0 +1,7 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+booklist_id,BIGINT UNSIGNED,FK booklists.id
+name,VARCHAR(120),Section name (Textbook/Stationery/etc.)
+sort_order,INT,Order
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

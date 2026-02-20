@@ -1,0 +1,8 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+organization_id,BIGINT UNSIGNED,FK organizations.id
+user_id,BIGINT UNSIGNED,FK users.id
+org_role,VARCHAR(30),admin/staff (or owner/manager/staff)
+status,VARCHAR(20),active/disabled
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

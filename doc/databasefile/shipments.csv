@@ -1,0 +1,20 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+order_id,BIGINT UNSIGNED,FK orders.id
+method,VARCHAR(20),pickup/shipment
+pickup_location,VARCHAR(255),Pickup point details
+ready_at,DATETIME,When ready for pickup
+picked_up_at,DATETIME,When collected
+address_line1,VARCHAR(255),Shipment address snapshot
+address_line2,VARCHAR(255),
+city,VARCHAR(100),
+state,VARCHAR(100),
+postcode,VARCHAR(20),
+country,VARCHAR(80),
+courier,VARCHAR(80),Courier
+tracking_no,VARCHAR(80),Tracking
+shipped_at,DATETIME,Shipped time
+delivered_at,DATETIME,Delivered time
+status,VARCHAR(30),pending/ready/shipped/delivered/picked_up
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

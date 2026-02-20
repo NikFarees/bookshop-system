@@ -1,0 +1,20 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+order_no,VARCHAR(40),Human-friendly order number
+parent_id,BIGINT UNSIGNED,FK parents.id
+school_id,BIGINT UNSIGNED,FK organizations.id (school)
+vendor_id,BIGINT UNSIGNED,FK organizations.id (vendor)
+booklist_id,BIGINT UNSIGNED,FK booklists.id
+academic_year,INT,Snapshot (optional)
+grade_label,VARCHAR(60),Snapshot (optional)
+fulfillment_method,VARCHAR(20),pickup/shipment
+status,VARCHAR(30),draft/pending_payment/paid/processing/ready/picked_up/shipped/completed/cancelled
+subtotal,"DECIMAL(10,2)",Item subtotal
+shipping_fee,"DECIMAL(10,2)",Delivery fee
+total,"DECIMAL(10,2)",Total amount
+customer_name,VARCHAR(150),Snapshot contact
+customer_phone,VARCHAR(30),Snapshot contact
+customer_email,VARCHAR(190),Snapshot contact
+remarks,TEXT,Parent remarks
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

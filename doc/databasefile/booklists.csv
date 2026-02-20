@@ -1,0 +1,12 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+school_id,BIGINT UNSIGNED,FK organizations.id (school)
+vendor_id,BIGINT UNSIGNED,FK organizations.id (vendor) snapshot
+academic_year,INT,"e.g., 2026"
+grade_label,VARCHAR(60),Flexible label
+version,INT,"Clone/version (1,2,3...)"
+status,VARCHAR(20),draft/published/archived
+published_at,DATETIME,Publish timestamp
+notes,TEXT,Notes
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

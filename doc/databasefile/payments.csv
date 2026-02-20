@@ -1,0 +1,11 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+order_id,BIGINT UNSIGNED,FK orders.id
+provider,VARCHAR(30),fpx
+provider_ref,VARCHAR(120),Gateway reference
+status,VARCHAR(20),init/paid/failed/refunded
+amount,"DECIMAL(10,2)",Amount
+paid_at,DATETIME,Paid time
+raw_response,JSON,Gateway payload snapshot
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

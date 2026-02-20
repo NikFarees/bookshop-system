@@ -1,0 +1,10 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+import_id,BIGINT UNSIGNED,FK imports.id
+row_no,INT,Row number
+row_json,JSON,Extracted data
+matched_product_id,BIGINT UNSIGNED,FK products.id
+matched_vendor_product_id,BIGINT UNSIGNED,FK vendor_products.id
+status,VARCHAR(30),pending/confirmed/rejected
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp

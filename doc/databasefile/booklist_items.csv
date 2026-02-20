@@ -1,0 +1,12 @@
+﻿name,data type,description
+id,BIGINT UNSIGNED,PK
+booklist_section_id,BIGINT UNSIGNED,FK booklist_sections.id
+product_id,BIGINT UNSIGNED,FK products.id
+vendor_product_id,BIGINT UNSIGNED,FK vendor_products.id (optional but useful)
+display_name,VARCHAR(200),School-specific name (optional)
+qty_required,INT,Default qty
+is_optional,TINYINT(1),"0 required, 1 optional"
+price_override,"DECIMAL(10,2)",Optional school override price
+sort_order,INT,Order
+created_at,DATETIME,Timestamp
+updated_at,DATETIME,Timestamp
