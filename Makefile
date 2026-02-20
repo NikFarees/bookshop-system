@@ -1,20 +1,21 @@
 # Bookshop System - Makefile
-# Usage: make up | make down | make bash | make migrate | make seed | make logs | make fix-perms
+# Usage: make up | make down | make stop | make bash | make migrate | make seed | make logs | make fix-perms
 
 APP_SERVICE=app
 WEB_SERVICE=web
 DB_SERVICE=db
 
-.PHONY: help up build down restart ps logs log-app log-web log-db bash webbash dbbash \
+.PHONY: help up build down stop restart ps logs log-app log-web log-db bash webbash dbbash \
         composer-install composer-update artisan keygen migrate fresh seed optimize-clear \
-        fix-perms fix-git check
+        fix-perms fix-git check tinker test pint queue-work
 
 help:
 	@echo ""
 	@echo "Bookshop System - Commands"
 	@echo "  make up                  Start containers"
 	@echo "  make build               Build images"
-	@echo "  make down                Stop containers"
+	@echo "  make stop                Stop containers (keep volumes/network)"
+	@echo "  make down                Stop + remove containers (keep volumes by default)"
 	@echo "  make restart             Restart containers"
 	@echo "  make ps                  Show container status"
 	@echo "  make logs                Tail logs (all)"
@@ -23,6 +24,7 @@ help:
 	@echo "  make log-db              Tail db logs"
 	@echo "  make bash                Shell into app container"
 	@echo "  make composer-install    Install PHP deps"
+	@echo "  make composer-update     Update PHP deps"
 	@echo "  make artisan cmd='...'   Run artisan command"
 	@echo "  make keygen              Generate app key"
 	@echo "  make migrate             Run migrations"
@@ -32,6 +34,10 @@ help:
 	@echo "  make fix-perms           Fix storage/bootstrap permissions"
 	@echo "  make fix-git             Fix git dubious ownership in container"
 	@echo "  make check               Quick health checks"
+	@echo "  make tinker              Open Laravel tinker"
+	@echo "  make test                Run tests"
+	@echo "  make pint                Run Laravel Pint formatter"
+	@echo "  make queue-work          Run queue worker (when you add jobs)"
 	@echo ""
 
 up:
@@ -39,6 +45,9 @@ up:
 
 build:
 	docker compose up -d --build
+
+stop:
+	docker compose stop
 
 down:
 	docker compose down
@@ -108,3 +117,15 @@ check:
 	@echo "== PHP Version ==" && docker compose exec $(APP_SERVICE) php -v
 	@echo ""
 	@echo "== Laravel Version ==" && docker compose exec $(APP_SERVICE) php artisan -V
+
+tinker:
+	docker compose exec $(APP_SERVICE) php artisan tinker
+
+test:
+	docker compose exec $(APP_SERVICE) php artisan test
+
+pint:
+	docker compose exec $(APP_SERVICE) ./vendor/bin/pint
+
+queue-work:
+	docker compose exec $(APP_SERVICE) php artisan queue:work --tries=3
