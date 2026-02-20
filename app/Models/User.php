@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'role_id',
         'name',
         'email',
         'password',
+        'phone',
+        'status',
+        'last_login_at',
     ];
 
     /**
@@ -42,7 +46,50 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'last_login_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the role that owns the user.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Get the parent record associated with the user.
+     */
+    public function parent()
+    {
+        return $this->hasOne(Parent::class);
+    }
+
+    /**
+     * Get the organizations associated with the user.
+     */
+    public function organizations()
+    {
+        return $this->belongsToMany(Organization::class, 'organization_users')
+                    ->withPivot('org_role', 'status')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get the audit logs created by this user.
+     */
+    public function auditLogs()
+    {
+        return $this->hasMany(AuditLog::class, 'actor_user_id');
+    }
+
+    /**
+     * Get the imports created by this user.
+     */
+    public function imports()
+    {
+        return $this->hasMany(Import::class);
     }
 }
