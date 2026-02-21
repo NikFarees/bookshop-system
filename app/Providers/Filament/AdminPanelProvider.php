@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->globalSearch(false)
             ->sidebarCollapsibleOnDesktop()
             ->profile()
             ->login()
