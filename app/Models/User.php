@@ -27,6 +27,10 @@ class User extends Authenticatable
         'last_login_at',
     ];
 
+    protected $attributes = [
+        'status' => 'active',
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
