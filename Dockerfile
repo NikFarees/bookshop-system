@@ -3,8 +3,8 @@ FROM php:8.4-fpm
 # System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git curl zip unzip \
-    libpng-dev libonig-dev libxml2-dev libzip-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
+    libpng-dev libonig-dev libxml2-dev libzip-dev libicu-dev \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl \
     && rm -rf /var/lib/apt/lists/*
 
 # Composer
